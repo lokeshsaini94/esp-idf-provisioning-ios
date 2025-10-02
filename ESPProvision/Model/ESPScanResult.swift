@@ -45,7 +45,7 @@ struct ESPScanResult: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         pop = try container.decodeIfPresent(String.self, forKey: .pop)
-        let tp = try container.decode(String.self, forKey: .transport)
+        _ = try container.decode(String.self, forKey: .transport)
         security = try ESPSecurity.init(rawValue: container.decodeIfPresent(Int.self, forKey: .security) ?? 2)
         if security == .secure2 {
             username = try container.decodeIfPresent(String.self, forKey: .username)

@@ -328,7 +328,7 @@ open class ESPDevice {
     ///     - completionHandler: The completion handler that is called when provision is completed.
     ///                          Parameter of block include status of provision.
     public func provision(ssid: String?, passPhrase: String? = "", threadOperationalDataset: Data? = nil, completionHandler: @escaping (ESPProvisionStatus) -> Void) {
-        ESPLog.log("Provisioning started.. with ssid:\(ssid) and password:\(passPhrase)")
+        ESPLog.log("Provisioning started.. with ssid:\(ssid ?? "") and password:\(passPhrase ?? "")")
         if session == nil || !session.isEstablished {
             completionHandler(.failure(.sessionError))
         } else {

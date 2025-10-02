@@ -135,7 +135,7 @@ class ESPWiFiManager {
 
     private func getScannedWifiSSIDs(response: Data, fetchFinish: Bool) {
         do {
-            if let decryptedResponse = try security.decrypt(data: response) {
+            if let decryptedResponse = security.decrypt(data: response) {
                 let payload = try NetworkScanPayload(serializedData: decryptedResponse)
                 let responseList = payload.respScanWifiResult
                 for index in 0 ... responseList.entries.count - 1 {
