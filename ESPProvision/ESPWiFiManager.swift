@@ -181,7 +181,7 @@ class ESPWiFiManager {
     }
 
     private func createWifiScanConfigRequest() throws -> Data? {
-        var configRequest = CmdScanWifiStatus()
+        let configRequest = CmdScanWifiStatus()
         let msgType = NetworkScanMsgType.typeCmdScanWifiStatus
         var payload = NetworkScanPayload()
         payload.msg = msgType

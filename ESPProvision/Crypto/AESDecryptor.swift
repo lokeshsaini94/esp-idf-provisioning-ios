@@ -64,7 +64,7 @@ class AESDecryptor {
         // Get the output buffer size
         let dataOutLength = CCCryptorGetOutputLength(cryptor, dataIn.count, true)
         // Allocate the output buffer
-        var dataOut = NSMutableData(length: dataOutLength)!
+        let dataOut = NSMutableData(length: dataOutLength)!
         let dataOutPointer = dataOut.mutableBytes.assumingMemoryBound(to: CChar.self)
         
         // Encrypt or decrypt the input data
