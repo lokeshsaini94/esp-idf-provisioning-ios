@@ -118,6 +118,6 @@ class AESDecryptor {
         
         // Use the `copyMemory` method of the destination pointer to copy the bytes from the source array to the destination pointer.
         // The `advanced(by:)` method is used to move the pointer to the correct starting index before copying.
-        umrp.advanced(by: byteOffset).copyMemory(from: arr, byteCount: byteCount)
+        arr.withUnsafeBytes { buffer in umrp.advanced(by: byteOffset).copyMemory(from: buffer.baseAddress!, byteCount: byteCount)}
     }
 }
